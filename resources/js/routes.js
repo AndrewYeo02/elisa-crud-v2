@@ -4,17 +4,17 @@ import ProductEdit from './components/products/edit.vue';
 
 export const routes = [
     {
-        path: '/products',
+        path: '/logbooks',
         component: ProductIndex,
         name: "ProductIndex"
     },
     {
-        path: '/products/create',
+        path: '/logbooks/create',
         component: ProductCreate,
         name: "ProductCreate"
     },
     {
-        path: '/products/edit/:id',
+        path: '/logbooks/edit/:id',
         component: ProductEdit,
         name: "ProductEdit"
     }

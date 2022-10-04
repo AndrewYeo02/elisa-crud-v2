@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2 class="text-center">Create product</h2>
+        <h2 class="text-center">Create Trainee</h2>
         <div class="row">
             <div class="col-md-12">
                 <router-link :to="{ name: 'ProductIndex' }" class="btn btn-primary btn-sm float-right mb-2">Back</router-link>
@@ -14,11 +14,11 @@
                         <input type="text" class="form-control" v-model="product.name">
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
+                        <label>A/C Registration</label>
                         <textarea type="text" rows="5" class="form-control" v-model="product.description"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Price</label>
+                        <label>Aircraft Type</label>
                         <input type="number" class="form-control" v-model="product.price">
                     </div>
                     <button type="button" class="btn btn-primary" @click="createProduct()">Create</button>

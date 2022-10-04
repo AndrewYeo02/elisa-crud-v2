@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <h2 class="text-center">Products List</h2>
+        <h2 class="text-center">Logbooks</h2>
         <div class="row">
             <div class="col-md-12">
-                <router-link :to="{ name: 'ProductCreate' }" class="btn btn-primary btn-sm float-right mb-2">Add Product</router-link>
+                <router-link :to="{ name: 'ProductCreate' }" class="btn btn-primary btn-sm float-right mb-2">Add Trainees</router-link>
             </div>
         </div>
         <div class="row">
@@ -13,8 +13,8 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
+                        <th>A/C Registration</th>
+                        <th>Duration (hrs)</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
