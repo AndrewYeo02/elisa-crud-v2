@@ -1,21 +1,21 @@
-import ProductIndex from './components/products/index.vue';
-import ProductCreate from './components/products/create.vue';
-import ProductEdit from './components/products/edit.vue';
+import LogbookIndex from './components/logbooks/index.vue';
+import LogbookCreate from './components/logbooks/create.vue';
+import LogbookEdit from './components/logbooks/edit.vue';
 
 export const routes = [
     {
         path: '/logbooks',
-        component: ProductIndex,
-        name: "ProductIndex"
+        component: LogbookIndex,
+        name: "LogbookIndex"
     },
     {
         path: '/logbooks/create',
-        component: ProductCreate,
-        name: "ProductCreate"
+        component: LogbookCreate,
+        name: "LogbookCreate"
     },
     {
         path: '/logbooks/edit/:id',
-        component: ProductEdit,
-        name: "ProductEdit"
+        component: LogbookEdit,
+        name: "LogbookEdit"
     }
 ];
