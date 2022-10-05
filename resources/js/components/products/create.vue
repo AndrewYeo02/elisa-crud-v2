@@ -15,11 +15,18 @@
                     </div>
                     <div class="form-group">
                         <label>A/C Registration</label>
+                      <!-- 
                         <textarea type="text" rows="5" class="form-control" v-model="product.description"></textarea>
+                      -->
+                      <input type="text" class="form-control" v-model="product.description">
+
                     </div>
                     <div class="form-group">
-                        <label>Aircraft Type</label>
+                        <label>Duration (hrs)</label>
                         <input type="number" class="form-control" v-model="product.price">
+                    </div>
+                    <div class="form-group">
+                        <label></label>
                     </div>
                     <button type="button" class="btn btn-primary" @click="createProduct()">Create</button>
                 </form>
@@ -37,7 +44,7 @@
         },
         methods: {
             createProduct() {
-                this.axios.post('http://127.0.0.1:8000/api/products', this.product)
+                this.axios.post('http://127.0.0.1:8001/api/logbook', this.product)
                     .then(response => (
                         this.$router.push({ name: 'ProductIndex' })
                     ))
