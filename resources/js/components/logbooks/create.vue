@@ -3,7 +3,7 @@
         <h2 class="text-center">Create Trainee</h2>
         <div class="row">
             <div class="col-md-12">
-                <router-link :to="{ name: 'LogbookIndex' }" class="btn btn-primary btn-sm float-right mb-2">Back</router-link>
+                <router-link :to="{ name: 'LogbookIndex' }" class="btn btn-primary btn-sm float-right mb-2">Go Logs</router-link>
             </div>
         </div>
         <div class="row">

@@ -15,7 +15,8 @@
                     </div>
                     <div class="form-group">
                         <label>A/C Registration</label>
-                        <textarea type="text" rows="5" class="form-control" v-model="logbook.description"></textarea>
+                     <!-- <textarea type="text" rows="5" class="form-control" v-model="logbook.description"></textarea>--> 
+                         <input type="text" class="form-control" v-model="logbook.description">
                     </div>
                     <div class="form-group">
                         <label>Duration (hrs)</label>
