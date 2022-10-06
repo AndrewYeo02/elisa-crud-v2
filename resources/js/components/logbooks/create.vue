@@ -44,7 +44,7 @@
         },
         methods: {
             createLogbook() {
-                this.axios.post('http://127.0.0.1:8001/api/logbook', this.logbook)
+                this.axios.post('http://192.168.1.120:8080/api/logbook', this.logbook)
                     .then(response => (
                         this.$router.push({ name: 'LogbookIndex' })
                     ))

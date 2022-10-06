@@ -45,14 +45,14 @@
         },
         methods: {
             editLogbook(logbookId) {
-                this.axios.get(`http://127.0.0.1:8001/api/logbook/${logbookId}`)
+                this.axios.get(`http://192.168.1.120:8080/api/logbook/${logbookId}`)
                    .then((res) => {
                        this.logbook = res.data;
                    });
             },
             updateLogbook() {
                 this.axios
-                    .patch(`http://127.0.0.1:8001/api/logbook/${this.$route.params.logbookId}`, this.logbook)
+                    .patch(`http://192.168.1.120:8080/api/logbook/${this.$route.params.logbookId}`, this.logbook)
                     .then((res) => {
                         this.$router.push({ name: 'LogbookIndex' });
                     });

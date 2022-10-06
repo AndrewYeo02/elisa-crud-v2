@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <router-link :to="{ name: 'LogbookCreate' }" class="btn btn-primary">Task</router-link>
                 <router-link :to="{ name: 'LogbookIndex' }" class="btn btn-primary">Logbooks</router-link>
-                <router-link :to="{ name: '#' }" class="btn btn-primary">My Profile</router-link>
+               <!-- <router-link  class="btn btn-primary">My Profile</router-link> -->
 
             </div>
             </div>
@@ -20,7 +20,5 @@
 
 
         </div>
-      </div>
-
 
 </template>

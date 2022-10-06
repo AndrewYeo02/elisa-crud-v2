@@ -50,14 +50,14 @@
         },
         methods: {
             getLogbooks() {
-              this.axios.get('http://127.0.0.1:8001/api/logbook')
+              this.axios.get('http://192.168.1.120:8080/api/logbook')
                   .then(response => {
                       this.logbooks = response.data;
                   });
             },
             deleteLogbook(logbookId) {
                 this.axios
-                    .delete(`http://127.0.0.1:8001/api/logbook/${logbookId}`)
+                    .delete(`http://192.168.1.120:8080/api/logbook/${logbookId}`)
                     .then(response => {
                         let i = this.logbooks.map(data => data.id).indexOf(logbookId);
                         this.logbooks.splice(i, 1)
