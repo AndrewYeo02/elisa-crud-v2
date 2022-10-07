@@ -2,7 +2,6 @@
 
 <template>
     
-
     <div class="card mb-3 text-center">
         <div class="card-body">
           <h3 class="card-title">Welcome to Elisa</h3>

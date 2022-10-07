@@ -25,7 +25,7 @@
                             <td>{{ logbook.description }}</td>
                             <td>{{ logbook.price }}</td>
                             <td>
-                                <router-link class="btn btn-success btn-sm" :to="{ name: 'LogbookEdit', params: { logbookId: logbook.id }}">Edit</router-link>
+                                <router-link class="btn btn-success btn-sm" :to="{ name: 'LogbookEdit', params: { logbookId: logbook.id } }">Edit</router-link>
                                 <button class="btn btn-danger btn-sm" @click="deleteLogbook(logbook.id)">Delete</button>
                             </td>
                             <td>

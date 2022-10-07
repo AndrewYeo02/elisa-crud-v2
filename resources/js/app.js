@@ -5,7 +5,9 @@ window.Vue = require('vue');
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
+import BootstrapVue from 'bootstrap-vue'; //Importing
 
+Vue.use(BootstrapVue) // Telling Vue to use this in whole application
 Vue.config.productionTip = false
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
