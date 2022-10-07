@@ -3,7 +3,7 @@
         <h2 class="text-center">Logbooks</h2>
         <div class="row">
             <div class="col-md-12">
-                <router-link :to="{ name: 'LogbookCreate' }" class="btn btn-primary btn-sm float-right mb-2">Add Trainees</router-link>
+                <router-link :to="{ name: 'LogbookCreate' }" class="btn btn-primary btn-sm float-right mb-2">Add New Task</router-link>
             </div>
         </div>
         <div class="row">
@@ -11,7 +11,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>#</th>
+                        <th>No.</th>
                         <th>Name</th>
                         <th>A/C Registration</th>
                         <th>Duration (hrs)</th>
