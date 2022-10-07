@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLogbooksTable extends Migration
+class CreateTraineesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateLogbooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('logbooks', function (Blueprint $table) {
+        Schema::create('trainees', function (Blueprint $table) {
             $table->id();
-           //$table->unsignedBigInteger('trainee_id');
+           
             $table->string('name')->nullable();
-            $table->string('description')->nullable();
-            $table->decimal('price')->nullable()->default(0.00);
-           // $table->foreign('trainee_id')->references('id')->on('trainees')->onDelete('cascade');
+            $table->string('email')->nullable();
+            $table->decimal('password')->nullable();
+           
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateLogbooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logbooks');
+        Schema::dropIfExists('trainees');
     }
 }
