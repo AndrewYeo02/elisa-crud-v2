@@ -13,20 +13,20 @@
                     <tr>
                         <th>No.</th>
                         <th>Name</th>
-                        <th>A/C Registration</th>
-                        <th>Duration (hrs)</th>
+                        <th>Email</th>
+                        <th>DOB</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(logbook, key) of logbooks" v-bind:key="key">
+                        <tr v-for="(trainee, key) of trainees" v-bind:key="key">
                             <td>{{ key+1 }}</td>
-                            <td>{{ logbook.name }}</td>
-                            <td>{{ logbook.description }}</td>
-                            <td>{{ logbook.price }}</td>
+                            <td>{{ trainee.name }}</td>
+                            <td>{{ trainee.email }}</td>
+                            <td>{{ trainee.dob }}</td>
                             <td>
-                                <router-link class="btn btn-success btn-sm" :to="{ name: 'LogbookEdit', params: { logbookId: logbook.id } }">Edit</router-link>
-                                <button class="btn btn-danger btn-sm" @click="deleteLogbook(logbook.id)">Delete</button>
+                                <router-link class="btn btn-success btn-sm" :to="{ name: 'LogbookEdit', params: { traineeId: trainee.id } }">Edit</router-link>
+                                <button class="btn btn-danger btn-sm" @click="deleteTrainee(trainee.id)">Delete</button>
                             </td>
                             <td>
                             </td>
@@ -42,25 +42,25 @@
     export default {
         data() {
             return {
-                logbooks: {}
+                trainees: {}
             }
         },
         created() {
-            this.getLogbooks();
+            this.getTrainees();
         },
         methods: {
-            getLogbooks() {
-              this.axios.get('http://192.168.1.120:8080/api/logbook')
+            getTrainees() {
+              this.axios.get('http://192.168.1.120:8080/api/trainee')
                   .then(response => {
-                      this.logbooks = response.data;
+                      this.trainees = response.data;
                   });
             },
-            deleteLogbook(logbookId) {
+            deleteTrainee(traineeId) {
                 this.axios
-                    .delete(`http://192.168.1.120:8080/api/logbook/${logbookId}`)
+                    .delete(`http://192.168.1.120:8080/api/trainee/${traineeId}`)
                     .then(response => {
-                        let i = this.logbooks.map(data => data.id).indexOf(logbookId);
-                        this.logbooks.splice(i, 1)
+                        let i = this.trainees.map(data => data.id).indexOf(traineeId);
+                        this.trainees.splice(i, 1)
                     });
             }
         }

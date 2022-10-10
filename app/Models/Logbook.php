@@ -9,7 +9,10 @@ class Logbook extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name', 'description', 'price'
-      ];
+    // protected $fillable = [
+    //     'name', 'description', 'price'
+    //   ];
+      public function logbook() {
+        return $this->belongsTo(Trainee::class);
+    }
 }

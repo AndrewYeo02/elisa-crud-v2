@@ -4,35 +4,46 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\LogbookResource;
+use App\Http\Resources\LogbookCollection;
+use App\Filters\LogbooksFilter;
 use App\Models\Logbook;
 
 
 class LogbookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $logbooks = Logbook::orderby('id', 'desc')->get();
+        // $logbooks =  new LogbookCollection(Logbook::paginate());
 
-        return response()->json($logbooks);
+        // return response()->json($logbooks);
+
+         // invoice filter for the operator such as >=,<=,==,!=
+         $filter = new LogbooksFilter();
+         $queryItems = $filter->transform($request);//[['column','operator','value']]
+         if(count($queryItems) == 0){
+             return new LogbookCollection(Logbook::paginate());
+         }else{
+             $logbooks = Logbook::where($queryItems)->paginate();
+ 
+             return new LogbookCollection($logbooks->appends($request->query()));
+         }
     }
 
     public function store(Request $request)
     {
 
-        $logbook = Logbook::create($request->all());
+        // $logbook = Logbook::create($request->all());
 
-        return response()->json([
-            'status' => 'success',
-            'logbook'   => $logbook
-        ]);
+        // return response()->json([
+        //     'status' => 'success',
+        //     'logbook'   => $logbook
+        // ]);
     }
 
-    public function show($id)
+    public function show(Logbook $logbook)
     {
-        $logbook = Logbook::find($id);
-
-        return response()->json($logbook);
+        return new LogbookResource($logbook);
     }
 
     public function update(Request $request, $id)
