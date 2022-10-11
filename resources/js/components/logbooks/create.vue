@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <h2 class="text-center">Create New Task</h2>
+        <h2 class="text-center">Create New Trainee</h2>
         <div class="row">
             <div class="col-md-12">
-                <router-link :to="{ name: 'LogbookIndex' }" class="btn btn-primary btn-sm float-right mb-2">Go Back</router-link>
+                <router-link :to="{ name: 'LogbookIndex' }" class="btn btn-primary btn-sm float-right mb-2">Trainee List</router-link>
             </div>
         </div>
         <div class="row">
@@ -14,7 +14,7 @@
                         <input type="text" class="form-control" v-model="trainee.name">
                     </div>
                     <div class="form-group">
-                        <label>email</label>
+                        <label>Email</label>
                       <!-- 
                         <textarea type="text" rows="5" class="form-control" v-model="product.description"></textarea>
                       -->
@@ -22,7 +22,7 @@
 
                     </div>
                     <div class="form-group">
-                        <label>dob</label>
+                        <label>DOB</label>
                         <input type="text" class="form-control" v-model="trainee.dob">
                     </div>
                     <div class="form-group">

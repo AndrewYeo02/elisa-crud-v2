@@ -13,80 +13,127 @@ use App\Http\Requests\UpdateTraineeRequest;
 
 class TraineeController extends Controller
 {
-    public function index(Request $request)
-    {
-        $filter = new TraineeFilter();
+    // public function index(Request $request)
+    // {
+    //     $filter = new TraineeFilter();
         
-        $filterItems = $filter->transform($request);//[['column','operator','value']]
+    //     $filterItems = $filter->transform($request);//[['column','operator','value']]
 
-        $includeLogbooks= $request->query('includeLogbooks');
+    //     $includeLogbooks= $request->query('includeLogbooks');
 
-        $trainees = Trainee::where($filterItems);
+    //     $trainees = Trainee::where($filterItems);
 
-        if($includeLogbooks){
-            $trainees = $trainees->with('logbooks');
+    //     if($includeLogbooks){
+    //         $trainees = $trainees->with('logbooks');
 
-        }
+    //     }
 
-        return new TraineeCollection($trainees ->paginate()->appends($request->query()));
+    //     return new TraineeCollection($trainees ->paginate()->appends($request->query()));
     
-    }
-    public function store(StoreTraineeRequest $request)
-    {
-        //parse all the data from request to trainee table
-        return new TraineeResource(Trainee::create($request->all()));
-    }
-
-    // public function store(Request $request)
+    // }
+    // public function store(StoreTraineeRequest $request)
     // {
-
-    //     $trainee = Trainee::create($request->all());
-
-    //     return response()->json([
-    //         'status' => 'success',
-    //         'trainee'   => $trainee
-    //     ]);
+    //     //parse all the data from request to trainee table
+    //     return new TraineeResource(Trainee::create($request->all()));
     // }
 
+    // // public function store(Request $request)
+    // // {
 
+    // //     $trainee = Trainee::create($request->all());
 
-    public function show(Trainee $trainee)
-    {
-        // $trainee = Trainee::find($id);
-        // return response()->json($trainee);
-
-        $includeLogbooks = request()->query('includeLogbooks');
-        if($includeLogbooks){
-            return new TraineeResource($trainee->loadMissing('logbooks'));
-        }
-        return new TraineeResource($trainee);
+    // //     return response()->json([
+    // //         'status' => 'success',
+    // //         'trainee'   => $trainee
+    // //     ]);
+    // // }
 
 
 
-    }
-
-    // public function update(Request $request, $id)
+    // public function show(Trainee $trainee)
     // {
-    //     $trainee = Trainee::find($id);
+    //     // $trainee = Trainee::find($id);
+    //     // return response()->json($trainee);
+
+    //     $includeLogbooks = request()->query('includeLogbooks');
+    //     if($includeLogbooks){
+    //         return new TraineeResource($trainee->loadMissing('logbooks'));
+    //     }
+    //     return new TraineeResource($trainee);
+
+
+
+    // }
+
+   
+
+    // public function update(UpdateTraineeRequest $request, Trainee $trainee)
+    // {
     //     $trainee->update($request->all());
-
-    //     return response()->json([
-    //         'status' => 'success',
-    //         'post'   => $trainee
-    //     ]);
     // }
 
-    public function update(UpdateTraineeRequest $request, Trainee $trainee)
+    // public function add(Request $request)
+    // {
+    //     $trainee = new Trainee([
+    //         'name' => $request->input('name'),
+    //         'email' => $request->input('email')
+    //     ]);
+    //     $trainee->save();
+  
+    //     return response()->json('post successfully added');
+    // }
+  
+
+    // public function destroy($id)
+    //  {
+    //      $trainee = Trainee::find($id);
+    //      $trainee->delete();
+
+    //      return response()->json('Trainee successfully deleted!');
+    //  }
+
+
+    public function index()
     {
-        $trainee->update($request->all());
+        $trainees = Trainee::orderby('id', 'desc')->get();
+
+        return response()->json($trainees);
     }
 
-
-    public function destroy($id)
+     public function store(Request $request)
+     {
+ 
+         $trainee = Trainee::create($request->all());
+ 
+         return response()->json([
+             'status' => 'success',
+             'trainee'   => $trainee
+         ]);
+     }
+ 
+     public function show($id)
      {
          $trainee = Trainee::find($id);
-         $trainee->delete();
-
-         return response()->json('Trainee successfully deleted!');
+ 
+         return response()->json($trainee);
      }
+ 
+     public function update(Request $request, $id)
+     {
+         $trainee = Trainee::find($id);
+         $trainee->update($request->all());
+ 
+         return response()->json([
+             'status' => 'success',
+             'post'   => $trainee
+         ]);
+     }
+ 
+     public function destroy($id)
+      {
+          $trainee = Trainee::find($id);
+          $trainee->delete();
+ 
+          return response()->json('Trainee successfully deleted!');
+      }
 }

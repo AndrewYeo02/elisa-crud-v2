@@ -3,7 +3,7 @@
         <h2 class="text-center">Logbooks</h2>
         <div class="row">
             <div class="col-md-12">
-                <router-link :to="{ name: 'LogbookCreate' }" class="btn btn-primary btn-sm float-right mb-2">Add New Task</router-link>
+                <router-link :to="{ name: 'LogbookCreate' }" class="btn btn-primary btn-sm float-right mb-2">Add New Trainee</router-link>
             </div>
         </div>
         <div class="row">
@@ -19,14 +19,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(trainee, key) of trainees" v-bind:key="key">
+                        <!-- <tr v-for="(trainee, key) of trainees" v-bind:key="key">
                             <td>{{ key+1 }}</td>
+                            <td>{{ trainee.name }}</td>
+                            <td>{{ trainee.email }}</td>
+                            <td>{{ trainee.dob }}</td>
+                            <td> -->
+                         <tr v-for="trainee in trainees" v-bind:key="trainee.id">
+                            <td>{{ trainee.id }}</td>
                             <td>{{ trainee.name }}</td>
                             <td>{{ trainee.email }}</td>
                             <td>{{ trainee.dob }}</td>
                             <td>
                                 <router-link class="btn btn-success btn-sm" :to="{ name: 'LogbookEdit', params: { traineeId: trainee.id } }">Edit</router-link>
                                 <button class="btn btn-danger btn-sm" @click="deleteTrainee(trainee.id)">Delete</button>
+                                <router-link :to="{ name: 'TaskIndex' }" class="btn btn-info btn-sm">New Task</router-link>
+                               
                             </td>
                             <td>
                             </td>

@@ -15,4 +15,9 @@ class Logbook extends Model
       public function logbook() {
         return $this->belongsTo(Trainee::class);
     }
+     public function newTask() {
+      return $this->hasMany(Logbook::class);
+  }
+
+  
 }

@@ -9,8 +9,9 @@
          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
          <div class="row">
             <div class="col-md-12">
-                <router-link :to="{ name: 'LogbookCreate' }" class="btn btn-primary">Task</router-link>
+                <router-link :to="{ name: 'LogbookCreate' }" class="btn btn-primary">Trainee</router-link>
                 <router-link :to="{ name: 'LogbookIndex' }" class="btn btn-primary">Logbooks</router-link>
+                
                <!-- <router-link  class="btn btn-primary">My Profile</router-link> -->
 
             </div>
