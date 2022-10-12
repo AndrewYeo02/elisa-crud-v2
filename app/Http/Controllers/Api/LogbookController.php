@@ -12,38 +12,29 @@ use App\Models\Logbook;
 
 class LogbookController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        // $logbooks =  new LogbookCollection(Logbook::paginate());
-
-        // return response()->json($logbooks);
-
-         // invoice filter for the operator such as >=,<=,==,!=
-         $filter = new LogbooksFilter();
-         $queryItems = $filter->transform($request);//[['column','operator','value']]
-         if(count($queryItems) == 0){
-             return new LogbookCollection(Logbook::paginate());
-         }else{
-             $logbooks = Logbook::where($queryItems)->paginate();
- 
-             return new LogbookCollection($logbooks->appends($request->query()));
-         }
+        $logbooks = Logbook::orderby('id', 'desc')->get();
+       
+        return response()->json($logbooks);
     }
 
     public function store(Request $request)
     {
 
-        // $logbook = Logbook::create($request->all());
+        $logbook = Logbook::create($request->all());
 
-        // return response()->json([
-        //     'status' => 'success',
-        //     'logbook'   => $logbook
-        // ]);
+        return response()->json([
+            'status' => 'success',
+            'logbook'   => $logbook
+        ]);
     }
 
-    public function show(Logbook $logbook)
+    public function show($id)
     {
-        return new LogbookResource($logbook);
+        $logbook = Logbook::find($id);
+
+        return response()->json($logbook);
     }
 
     public function update(Request $request, $id)
@@ -62,6 +53,6 @@ class LogbookController extends Controller
          $logbook = Logbook::find($id);
          $logbook->delete();
 
-         return response()->json('Trainee successfully deleted!');
+         return response()->json('Logbook successfully deleted!');
      }
 }

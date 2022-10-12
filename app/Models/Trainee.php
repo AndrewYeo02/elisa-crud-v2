@@ -12,6 +12,7 @@ class Trainee extends Model
     protected $fillable = [
        'name', 'email', 'dob'
       ];
+   
 
       public function logbooks() {
         return $this->hasMany(Logbook::class);

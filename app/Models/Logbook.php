@@ -9,11 +9,15 @@ class Logbook extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'name', 'description', 'price'
-    //   ];
+    protected $fillable = [
+       'trainee_id','logname'
+      ];
+
+      protected $guarded = [
+        'trainee_id'
+       ];
       public function logbook() {
-        return $this->belongsTo(Trainee::class);
+        return $this->belongsTo(Trainee::class,'trainee_id','id');
     }
      public function newTask() {
       return $this->hasMany(Logbook::class);

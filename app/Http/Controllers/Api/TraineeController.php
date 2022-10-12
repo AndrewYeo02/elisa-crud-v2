@@ -13,7 +13,60 @@ use App\Http\Requests\UpdateTraineeRequest;
 
 class TraineeController extends Controller
 {
-    // public function index(Request $request)
+    
+
+
+    public function index()
+    {
+        $trainees = Trainee::orderby('id', 'desc')->with('logbooks')->get();
+        //  $trainees = $trainees->with('logbooks');
+        // $trainees = TraineeResource::collection(with('logbooks')->get());
+        return response()->json($trainees);
+        // return new TraineeResource();
+    }
+
+     public function store(Request $request)
+     {
+ 
+         $trainee = Trainee::create($request->all());
+ 
+         return response()->json([
+             'status' => 'success',
+             'trainee'   => $trainee
+         ]);
+     }
+ 
+     public function show($id)
+     {
+         $trainee = Trainee::find($id);
+ 
+         return response()->json($trainee);
+     }
+ 
+     public function update(Request $request, $id)
+     {
+         $trainee = Trainee::find($id);
+         $trainee->update($request->all());
+ 
+         return response()->json([
+             'status' => 'success',
+             'post'   => $trainee
+         ]);
+     }
+ 
+     public function destroy($id)
+      {
+          $trainee = Trainee::find($id);
+          $trainee->delete();
+ 
+          return response()->json('Trainee successfully deleted!');
+      }
+}
+
+
+
+
+// public function index(Request $request)
     // {
     //     $filter = new TraineeFilter();
         
@@ -91,49 +144,3 @@ class TraineeController extends Controller
 
     //      return response()->json('Trainee successfully deleted!');
     //  }
-
-
-    public function index()
-    {
-        $trainees = Trainee::orderby('id', 'desc')->get();
-
-        return response()->json($trainees);
-    }
-
-     public function store(Request $request)
-     {
- 
-         $trainee = Trainee::create($request->all());
- 
-         return response()->json([
-             'status' => 'success',
-             'trainee'   => $trainee
-         ]);
-     }
- 
-     public function show($id)
-     {
-         $trainee = Trainee::find($id);
- 
-         return response()->json($trainee);
-     }
- 
-     public function update(Request $request, $id)
-     {
-         $trainee = Trainee::find($id);
-         $trainee->update($request->all());
- 
-         return response()->json([
-             'status' => 'success',
-             'post'   => $trainee
-         ]);
-     }
- 
-     public function destroy($id)
-      {
-          $trainee = Trainee::find($id);
-          $trainee->delete();
- 
-          return response()->json('Trainee successfully deleted!');
-      }
-}

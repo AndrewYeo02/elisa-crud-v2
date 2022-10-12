@@ -15,7 +15,7 @@ class CreateLogbooksTable extends Migration
     {
         Schema::create('logbooks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('trainee_id');
+            $table->unsignedBigInteger('trainee_id')->nullable();
             $table->string('logname')->nullable();
             $table->foreign('trainee_id')
                  ->references('id')

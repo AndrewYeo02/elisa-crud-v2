@@ -9,10 +9,7 @@ class newTask extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'name', 'description', 'price'
-    //   ];
-     
+
     public function newTask() {
         return $this->belongsTo(Logbook::class);
     }
