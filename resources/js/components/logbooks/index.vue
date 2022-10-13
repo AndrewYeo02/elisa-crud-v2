@@ -11,9 +11,9 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>No.</th>
+                     
                         <th>Logbook Name</th>
-                        <th>Trainee</th>
+                        <th>Action</th>
                        
                     </tr>
                     </thead>
@@ -25,14 +25,13 @@
                             <td>{{ trainee.dob }}</td>
                             <td> -->
                          <tr v-for="logbook in logbooks" v-bind:key="logbook.id">
-                            <td>{{ logbook.id }}</td>
-                            <td>{{ logbook.name }}</td>
-                            
+                            <!-- <td>{{ logbook.id }}</td> -->
+                            <td>{{ logbook.logname }}</td>
                              <!-- <td>{{ trainee.logbook.name }}</td> -->
                             <td>
                                 <!-- <router-link class="btn btn-success btn-sm" :to="{ name: 'TraineeEdit', params: { traineeId: trainee.id } }">Edit</router-link>
-                                <button class="btn btn-danger btn-sm" @click="deleteTrainee(trainee.id)">Delete</button>
                                 <router-link :to="{ name: 'TaskIndex' }" class="btn btn-info btn-sm">New Task</router-link> -->
+                                <button class="btn btn-danger btn-sm" @click="deleteLogbook(logbook.id)">Delete</button>
                                
                             </td>
                             <td>
@@ -49,8 +48,8 @@
     export default {
         data() {
             return {
-                trainees: {},
-                 logbooks: {}
+                logbooks: {},
+                trainees: {}
             }
         },
         created() {
@@ -70,14 +69,14 @@
                       this.logbooks = response.data;
                   });
             },
-            // deleteTrainee(traineeId) {
-            //     this.axios
-            //         .delete(`http://192.168.1.120:8080/api/trainee/${traineeId}`)
-            //         .then(response => {
-            //             let i = this.trainees.map(data => data.id).indexOf(traineeId);
-            //             this.trainees.splice(i, 1)
-            //         });
-            // }
+            deleteLogbook(logbookId) {
+                this.axios
+                    .delete(`http://192.168.1.120:8080/api/logbook/${logbookId}`)
+                    .then(response => {
+                        let i = this.logbooks.map(data => data.id).indexOf(logbookId);
+                        this.logbooks.splice(i, 1)
+                    });
+            }
         }
     }
 </script>

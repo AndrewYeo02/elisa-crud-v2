@@ -10,10 +10,16 @@
             <div class="col-md-12">
                 <form>
                     <div class="form-group">
+                        <label>Trainee ID</label>
+                         <select class="form-control" v-model="logbook.trainee_id">
+                                <option>{{trainee.id}}</option>
+                         </select>
+                    </div>
+                    <div class="form-group">
                       <label>Trainee Name</label>
                         <!-- <label>Name</label>
                         <input type="text" class="form-control" v-model="trainee.name"> -->
-                        <select class="form-control">
+                        <select class="form-control" >
                                 <option>{{trainee.name}}</option>
                          </select>
                     </div>
@@ -22,13 +28,10 @@
                       <!-- 
                         <textarea type="text" rows="5" class="form-control" v-model="product.description"></textarea>
                       -->
-                      <input type="text" class="form-control" v-model="logbook.name">
+                      <input type="text" class="form-control" v-model="logbook.logname">
+                       <!-- <input type="text" class="form-control" v-model="logbook.trainee_id"> -->
 
                     </div>
-                    <!-- <div class="form-group">
-                        <label>DOB</label>
-                        <input type="text" class="form-control" v-model="trainee.dob">
-                    </div> -->
                     <div class="form-group">
                         <label></label>
                     </div>
@@ -43,9 +46,10 @@
     export default {
         data() {
             return {
-                trainee: {},
-                logbook:{}
+                logbook:{},
+                trainee: {}
             }
+          
         },
         mounted() {
             this.addLogbook(this.$route.params.traineeId);

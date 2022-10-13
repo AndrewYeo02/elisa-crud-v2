@@ -13,9 +13,9 @@ class Logbook extends Model
        'trainee_id','logname'
       ];
 
-      protected $guarded = [
-        'trainee_id'
-       ];
+      // protected $guarded = [
+      //   'trainee_id'
+      //  ];
       public function logbook() {
         return $this->belongsTo(Trainee::class,'trainee_id','id');
     }
