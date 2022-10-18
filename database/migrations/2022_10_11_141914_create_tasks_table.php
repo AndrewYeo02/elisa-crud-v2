@@ -13,12 +13,17 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('newtasks', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('logbooks_id');
+            $table->unsignedBigInteger('logbooks_id')->nullable();
           
             $table->string('registration')->nullable();
             $table->string('aircraft')->nullable();
+            $table->string('ata')->nullable();
+            $table->string('description')->nullable();
+            $table->string('type')->nullable();
+            $table->string('licence')->nullable();
+            $table->string('workType')->nullable();
 
             $table->foreign('logbooks_id')
                  ->references('id')

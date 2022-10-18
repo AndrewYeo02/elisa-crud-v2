@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\LogbookController;
 use App\Http\Controllers\Api\TraineeController;
+use App\Http\Controllers\Api\TaskController;
 
 
 /*
@@ -27,6 +28,8 @@ use App\Http\Controllers\Api\TraineeController;
 Route::middleware('api')->group(function () {
     Route::resource('logbook', LogbookController::class);
     Route::resource('trainee',TraineeController::class);
+    Route::resource('task',TaskController::class);
+
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

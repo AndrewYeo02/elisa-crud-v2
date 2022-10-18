@@ -30,8 +30,7 @@
          <div class="row">
             <div class="col-md-12">
                <router-link :to="{ name: 'ElisaHome' }" class="btn btn-primary">Admin Login</router-link>
-               
-                <a role="button" class="btn btn-primary btn-customized" href="#">Trainee Login</a>
+               <router-link :to="{ name: 'TraineeView' }" class="btn btn-primary">Trainee Login</router-link>               
                <!-- <router-link  class="btn btn-primary">My Profile</router-link> -->
 
             </div>
