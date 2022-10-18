@@ -4,6 +4,8 @@
         <div class="row">
             <div class="col-md-12">
                 <router-link :to="{ name: 'TraineeIndex' }" class="btn btn-primary btn-sm float-right mb-2">Back</router-link>
+                <a style="float:right">User: Admin </a>
+
             </div>
         </div>
         <div class="row">

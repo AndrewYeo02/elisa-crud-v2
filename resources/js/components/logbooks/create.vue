@@ -4,32 +4,35 @@
         <div class="row">
             <div class="col-md-12">
                 <router-link :to="{ name: 'TraineeIndex' }" class="btn btn-primary btn-sm float-right mb-2">Back</router-link>
+                <a style="float:right"  v-model="logbook.trainee_id">Trainee ID: {{trainee.id}}</a>
+                <a style="float:right">Trainee Name: {{trainee.name}} &nbsp;</a>
+                <a style="float:right">User: Admin &nbsp;&nbsp;</a>
+                <!-- <input  type="text"  v-model="logbook.trainee_id"  >{{trainee.id}}</input> -->
+              
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <form>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Trainee ID</label>
                          <select class="form-control" v-model="logbook.trainee_id">
                                 <option>{{trainee.id}}</option>
                          </select>
-                    </div>
-                    <div class="form-group">
+                    </div> -->
+                    <!-- <div class="form-group">
                       <label>Trainee Name</label>
-                        <!-- <label>Name</label>
-                        <input type="text" class="form-control" v-model="trainee.name"> -->
+                      
                         <select class="form-control" >
                                 <option>{{trainee.name}}</option>
                          </select>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label>Logbook Name</label>
                       <!-- 
                         <textarea type="text" rows="5" class="form-control" v-model="product.description"></textarea>
                       -->
                       <input type="text" class="form-control" v-model="logbook.logname">
-                       <!-- <input type="text" class="form-control" v-model="logbook.trainee_id"> -->
 
                     </div>
                     <div class="form-group">

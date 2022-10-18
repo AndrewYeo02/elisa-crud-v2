@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <router-link :to="{ name: 'TraineeCreate' }" class="btn btn-primary btn-sm float-right mb-2">Add New Trainee</router-link>
+                <a style="float:right" >User: Admin</a>
             </div>
         </div>
         <div class="row">
@@ -20,7 +21,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(trainee, key) of trainees" v-bind:key="key">
-                            <td>{{ key+1 }}</td>
+                            <td>{{ trainee.id}}</td>
                             <td>{{ trainee.name }}</td>
                             <td>{{ trainee.email }}</td>
                             <td>{{ trainee.dob }}</td>
@@ -36,7 +37,7 @@
                                 <button class="btn btn-danger btn-sm" @click="deleteTrainee(trainee.id)">Delete</button>
                                 <router-link  class="btn btn-warning btn-sm" :to="{ name: 'LogbookCreate', params: { traineeId: trainee.id} }">Create Logbook</router-link>
 
-                                <router-link :to="{ name: 'TaskIndex' }" class="btn btn-info btn-sm">New Task</router-link>
+                        
                                
                             </td>
                             <td>
