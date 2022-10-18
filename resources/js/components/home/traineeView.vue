@@ -4,7 +4,7 @@
    
     <div class="card mb-3 text-center">
         <div class="card-body">
-          <h3 class="card-title">Trainee Logged In</h3>
+          <h3 class="card-title">Trainee Logged In!</h3>
           <p class="card-text">Choose an option!</p>
          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
          <div class="row">
