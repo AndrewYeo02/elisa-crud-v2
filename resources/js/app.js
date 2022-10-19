@@ -16,6 +16,7 @@ import App from './app.vue';
 import { routes } from './routes';
 
 
+
 const router = new VueRouter({
     mode: 'history',
     routes: routes
@@ -26,3 +27,4 @@ const app = new Vue({
     router: router,
     render: h => h(App),
 });
+// app.config.globalProperties.$axios = axios;

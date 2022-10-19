@@ -10,9 +10,20 @@ import TraineeView from './components/home/traineeView.vue';
 import TaskCreate from './components/tasks/create.vue';
 import AdminTask from './components/tasks/adminTask.vue';
 import TaskEdit from './components/tasks/edit.vue';
-
+import Login from './components/auth/login.vue';
+import Register from './components/auth/register.vue';
 
 export const routes = [
+    {
+        name: 'register',
+        path: '/register',
+        component: Register
+    },
+    {
+        name: 'login',
+        path: '/login',
+        component: Login
+    },
     {
         path:'/admin/task',
         component: AdminTask,
